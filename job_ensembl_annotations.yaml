@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: ensembl-rapid-release
+spec:
+  schedule: "0 1 * * MON"
+  concurrencyPolicy: Replace
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: ensembl-rapid-release
+            image: yroochun/ensembljob:latest
+            envFrom:
+              - secretRef:
+                  name: secret-es-prod
+            imagePullPolicy: Always
+            command: ["python", "load_ensembl_annotation_PROD.py"]
+          restartPolicy: OnFailure

@@ -1,0 +1,8 @@
+deployment.yaml
+Dockerfile.*
+job.yaml
+job_simplejob.yaml
+load_ensembl_annotation_TEST.py
+secret-es-*
+simplejob.py
+.idea/
