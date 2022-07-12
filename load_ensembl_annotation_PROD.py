@@ -20,7 +20,6 @@ ES_HOST = os.environ.get("ES_NODE")
 es = Elasticsearch([ES_HOST],
                    connection_class=RequestsHttpConnection,
                    http_auth=(ES_USERNAME, ES_PASSWORD),
-                   # http_auth=('elastic', 'cD7351AoJa559BHDT53ntBY5'),
                    use_ssl=True, verify_certs=False,
                    ssl_show_warn=False)
 
